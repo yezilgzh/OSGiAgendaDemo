@@ -1,0 +1,10 @@
+-buildpath:  \
+	agenda.api;version=latest,\
+	org.apache.felix.dependencymanager,\
+	osgi.core,\
+	osgi.cmpn,\
+	biz.aQute.bnd.annotation,\
+	org.apache.felix.gogo.runtime,\
+	org.apache.felix.dependencymanager.runtime
+-sub:  \
+	*.bnd
