@@ -7,19 +7,25 @@ import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.log.LogService;
+import org.osgi.service.remoteserviceadmin.RemoteConstants;
 
 import agenda.api.AgendaService;
 import agenda.api.Conference;
 
-@Component
+
+@Component(
+		property = RemoteConstants.SERVICE_EXPORTED_INTERFACES + ":String=" + "agenda.api.AgendaService" // SimpleAgendaService.SERVICENAME;	
+)
 public class SimpleAgendaService implements AgendaService {
 
-	private List<Conference> conferences = new CopyOnWriteArrayList<Conference>();
-	private volatile LogService logService;
+//	public static final String SERVICENAME = AgendaService.class.getName();
+	
+	private List<Conference> m_conferences = new CopyOnWriteArrayList<Conference>();
+	private volatile LogService m_logService;
 	
 	@Reference
 	public void setLogService(LogService logService){
-		this.logService = logService;
+		this.m_logService = logService;
 	}
 	
 	@Activate
@@ -30,13 +36,13 @@ public class SimpleAgendaService implements AgendaService {
 	
 	@Override
 	public List<Conference> listConferences() {
-		return conferences;
+		return m_conferences;
 	}
 
 	@Override
 	public void addConference(Conference conference) {
-		logService.log(LogService.LOG_INFO, "adding conference");
-		conferences.add(conference);
+		m_logService.log(LogService.LOG_INFO, "adding conference");
+		m_conferences.add(conference);
 	}
 
 }

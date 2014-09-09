@@ -14,15 +14,15 @@ import agenda.api.AgendaService;
 )
 public class ConferenceCommand {
 
-	private volatile AgendaService agendaService;
+	private volatile AgendaService m_agendaService;
 	
 	@Reference
 	public void setAgendaService(AgendaService agendaService){
-		this.agendaService = agendaService;
+		this.m_agendaService = agendaService;
 	}
 		
 	public String listConf(){
-		return agendaService.listConferences().toString();
+		return m_agendaService.listConferences().toString();
 	}
 	
 }

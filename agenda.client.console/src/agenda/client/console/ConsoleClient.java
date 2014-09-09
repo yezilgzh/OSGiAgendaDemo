@@ -7,10 +7,10 @@ import agenda.api.Conference;
 
 public class ConsoleClient {
 
-	private volatile AgendaService agendaService;
+	private volatile AgendaService m_agendaService;
 	
 	public void start() {
-		List<Conference> conferences = agendaService.listConferences();
+		List<Conference> conferences = m_agendaService.listConferences();
 		for (Conference conference : conferences) {
 			System.out.println(conference);
 		}

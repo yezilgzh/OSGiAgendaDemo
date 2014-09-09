@@ -15,13 +15,13 @@ import agenda.api.Conference;
 @Path("agenda")
 public class AgendaResource {
 
-	private volatile AgendaService agendaService;
+	private volatile AgendaService m_agendaService;
 	
 	@GET @Path("conference")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String listConferences() throws Exception {
 		
-		List<Conference> conferences = agendaService.listConferences();
+		List<Conference> conferences = m_agendaService.listConferences();
 
 		ObjectMapper mapper = new ObjectMapper();
 		String result = mapper.writeValueAsString(conferences);
