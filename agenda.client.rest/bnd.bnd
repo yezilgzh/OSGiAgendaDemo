@@ -1,19 +1,19 @@
 Bundle-Version: 1.0.0.${tstamp}
 -buildpath:  \
 	agenda.api;version=latest,\
-	org.amdatu.web.rest.jaxrs,\
-	org.amdatu.web.rest.wink,\
-	org.amdatu.web.rest.doc,\
-	org.amdatu.web.rest.doc.swagger,\
-	org.amdatu.web.rest.doc.swagger.ui,\
-	org.amdatu.web.resourcehandler,\
-	org.apache.felix.dependencymanager,\
-	osgi.core,\
-	com.fasterxml.jackson.core.jackson-annotations,\
-	com.fasterxml.jackson.core.jackson-core,\
-	com.fasterxml.jackson.core.jackson-databind,\
-	com.fasterxml.jackson.jaxrs.jackson-jaxrs-base,\
-	com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider
+	org.amdatu.web.rest.doc;version=1.1,\
+	org.amdatu.web.rest.doc.swagger;version=1.0,\
+	org.amdatu.web.rest.doc.swagger.ui;version=1.0,\
+	org.amdatu.web.rest.jaxrs;version=1.0,\
+	org.amdatu.web.rest.wink;version=2.0,\
+	com.fasterxml.jackson.core.jackson-annotations;version=2.3,\
+	com.fasterxml.jackson.core.jackson-core;version=2.3,\
+	com.fasterxml.jackson.core.jackson-databind;version=2.3,\
+	com.fasterxml.jackson.jaxrs.jackson-jaxrs-base;version=2.3,\
+	com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider;version=2.3,\
+	org.amdatu.web.resourcehandler;version=1.0,\
+	org.apache.felix.dependencymanager;version=3.1,\
+	osgi.core;version=5.0
 Private-Package:  \
 	agenda.client.rest
 Bundle-Activator: agenda.client.rest.Activator

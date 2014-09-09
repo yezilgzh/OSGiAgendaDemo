@@ -1,17 +1,16 @@
 package agenda.service.command;
 
 import org.apache.felix.service.command.CommandProcessor;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
-import aQute.bnd.annotation.component.Component;
-import aQute.bnd.annotation.component.Reference;
 import agenda.api.AgendaService;
 
-@Component(properties =	{
-		/* Felix GoGo Shell Commands */
+@Component(property = {
 		CommandProcessor.COMMAND_SCOPE + ":String=agenda",
 		CommandProcessor.COMMAND_FUNCTION + ":String=listConf"
 	},
-	provide = Object.class
+	service=Object.class
 )
 public class ConferenceCommand {
 

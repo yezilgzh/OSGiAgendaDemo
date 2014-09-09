@@ -1,5 +1,5 @@
 Bundle-Version: 1.0.0.${tstamp}
 Private-Package:  \
 	agenda.service.simple
-Service-Component:  \
+-dsannotations:  \
 	*

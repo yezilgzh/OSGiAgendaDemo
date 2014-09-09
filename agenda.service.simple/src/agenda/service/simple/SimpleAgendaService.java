@@ -3,11 +3,11 @@ package agenda.service.simple;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.log.LogService;
 
-import aQute.bnd.annotation.component.Activate;
-import aQute.bnd.annotation.component.Component;
-import aQute.bnd.annotation.component.Reference;
 import agenda.api.AgendaService;
 import agenda.api.Conference;
 

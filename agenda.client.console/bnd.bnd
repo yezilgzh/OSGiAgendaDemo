@@ -1,8 +1,8 @@
 Bundle-Version: 1.0.0.${tstamp}
 -buildpath:  \
-	org.apache.felix.dependencymanager,\
-	osgi.core,\
-	agenda.api;version=latest
+	agenda.api;version=latest,\
+	osgi.core;version=5.0,\
+	org.apache.felix.dependencymanager;version=3.1
 Private-Package:  \
 	agenda.client.console
 Bundle-Activator: agenda.client.console.Activator

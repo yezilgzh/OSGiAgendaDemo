@@ -1,5 +1,5 @@
 Private-Package:  \
 	agenda.service.command
 Bundle-Version: 1.0.0.${tstamp}
-Service-Component:  \
+-dsannotations:  \
 	*
