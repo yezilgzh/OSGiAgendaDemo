@@ -16,15 +16,18 @@ import agenda.api.Conference;
 public class AgendaResource {
 
 	private volatile AgendaService m_agendaService;
+	private ObjectMapper m_mapper;
+	
+	public AgendaResource() {
+		m_mapper = new ObjectMapper();
+	}
 	
 	@GET @Path("conference")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String listConferences() throws Exception {
 		
 		List<Conference> conferences = m_agendaService.listConferences();
-
-		ObjectMapper mapper = new ObjectMapper();
-		String result = mapper.writeValueAsString(conferences);
+		String result = m_mapper.writeValueAsString(conferences);
 		
 		return result;
 		
