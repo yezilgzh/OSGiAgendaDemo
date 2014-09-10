@@ -13,9 +13,9 @@ import agenda.api.AgendaService;
 import agenda.api.Conference;
 
 
-@Component(
-		property = RemoteConstants.SERVICE_EXPORTED_INTERFACES + ":String=" + "agenda.api.AgendaService" // SimpleAgendaService.SERVICENAME;	
-)
+//@Component(
+//		property = RemoteConstants.SERVICE_EXPORTED_INTERFACES + ":String=" + "agenda.api.AgendaService" // SimpleAgendaService.SERVICENAME;	
+//)
 public class SimpleAgendaService implements AgendaService {
 
 //	public static final String SERVICENAME = AgendaService.class.getName();
@@ -23,12 +23,12 @@ public class SimpleAgendaService implements AgendaService {
 	private List<Conference> m_conferences = new CopyOnWriteArrayList<Conference>();
 	private volatile LogService m_logService;
 	
-	@Reference
-	public void setLogService(LogService logService){
-		this.m_logService = logService;
-	}
+//	@Reference
+//	public void setLogService(LogService logService){
+//		this.m_logService = logService;
+//	}
 	
-	@Activate
+//	@Activate
 	public void start() {
 		addConference(new Conference("Java One", "San Francisco"));
 		addConference(new Conference("Devoxx", "Antwerp"));
