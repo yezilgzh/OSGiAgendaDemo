@@ -10,9 +10,16 @@ public class ConsoleClient {
 	private volatile AgendaService m_agendaService;
 	
 	public void start() {
+		if (m_agendaService == null) {
+			return;
+		}
+		
 		List<Conference> conferences = m_agendaService.listConferences();
-		for (Conference conference : conferences) {
-			System.out.println(conference);
+		
+		if (conferences != null) {
+			for (Conference conference : conferences) {
+				System.out.println(conference);
+			}
 		}
 	}
 	
