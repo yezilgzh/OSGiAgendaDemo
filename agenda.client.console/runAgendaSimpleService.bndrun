@@ -9,7 +9,6 @@
 	agenda.api;version=latest,\
 	agenda.client.console;version=latest,\
 	agenda.service.simple.command;version=latest,\
-	agenda.service.simple.provider;version=latest,\
 	org.apache.felix.dependencymanager;version=3.1.0,\
 	org.apache.felix.dependencymanager.shell;version=3.0.1,\
 	org.apache.felix.gogo.command;version=0.12.0,\
@@ -17,7 +16,17 @@
 	org.apache.felix.gogo.shell;version=0.10.0,\
 	org.apache.felix.log;version=1.0.1,\
 	org.apache.felix.scr;version=1.8.2,\
-	osgi.cmpn;version=5.0.0
+	osgi.cmpn;version=5.0.0,\
+	org.amdatu.remote.admin.http,\
+	org.amdatu.remote.discovery.bonjour,\
+	org.amdatu.remote.topology.promiscuous,\
+	org.apache.felix.configadmin;version=1.8.0,\
+	org.apache.felix.metatype;version=1.0.10,\
+	osgi.enterprise;version=5.0.0,\
+	javax.jmdns;version=3.4.2,\
+	org.osgi.service.remoteserviceadmin;version=6.0.0,\
+	javax.servlet;version=2.5.0,\
+	agenda.service.simple.provider;version=latest
 -runrepos:  \
 	Workspace,\
 	Release,\
@@ -25,3 +34,7 @@
 	Bndtools Hub,\
 	Amdatu Dependencies,\
 	Amdatu Release
+-runproperties:  \
+	org.osgi.framework.bootdelegation=javax.*,\
+	host=127.0.0.1,\
+	org.osgi.service.http.port=9001
