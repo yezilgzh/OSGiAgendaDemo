@@ -23,7 +23,6 @@
 	org.apache.felix.configadmin;version=1.8.0,\
 	org.apache.felix.metatype;version=1.0.10,\
 	osgi.enterprise;version=5.0.0,\
-	javax.jmdns;version=3.4.2,\
 	org.osgi.service.remoteserviceadmin;version=6.0.0,\
 	javax.servlet;version=2.5.0,\
 	agenda.service.simple.provider;version=latest,\
