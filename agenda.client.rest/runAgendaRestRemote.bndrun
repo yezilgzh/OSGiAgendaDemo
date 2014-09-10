@@ -45,6 +45,6 @@
 	Amdatu Release
 	
 -runproperties:  \
-	org.osgi.framework.bootdelegation=javax.*,\
 	host=127.0.0.1,\
-	org.osgi.service.http.port=9001
+	org.osgi.framework.bootdelegation=javax.*,\
+	org.osgi.service.http.port=9002

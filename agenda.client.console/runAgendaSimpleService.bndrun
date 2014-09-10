@@ -26,7 +26,8 @@
 	javax.jmdns;version=3.4.2,\
 	org.osgi.service.remoteserviceadmin;version=6.0.0,\
 	javax.servlet;version=2.5.0,\
-	agenda.service.simple.provider;version=latest
+	agenda.service.simple.provider;version=latest,\
+	org.apache.felix.http.jetty;version='[2.2.2,2.3)'
 -runrepos:  \
 	Workspace,\
 	Release,\
