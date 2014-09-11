@@ -13,7 +13,7 @@ import agenda.itest.util.Config;
 import agenda.itest.util.FrameworkConfig;
 import agenda.itest.util.FrameworkContext;
 
-public class AgendaTestBase extends IntegrationTestBase {
+public abstract class AgendaTestBase extends IntegrationTestBase {
 
 //    private final BundleContext context = FrameworkUtil.getBundle(this.getClass()).getBundleContext();
 
@@ -44,7 +44,7 @@ public class AgendaTestBase extends IntegrationTestBase {
 	@Override
 	protected void configureServices() throws Exception {
 		m_agendaServiceReference = getChildContext("CHILD1").getBundleContext().getServiceReference(AgendaService.class);
-        for (int i = 0; i < 1000 && m_agendaService == null; i++) {
+        for (int i = 0; i < 1000 && m_agendaServiceReference == null; i++) {
             Thread.sleep(10);
             m_agendaServiceReference = getChildContext("CHILD1").getBundleContext().getServiceReference(AgendaService.class);
         }
