@@ -18,7 +18,7 @@ agenda.client.console
 
 agenda.client.rest
   - a client of the agenda service which offers a REST service
-  - conatins a run configuration, which consumes the agenda service via Remote Service Admin
+  - contains a run configuration, which consumes the agenda service via Remote Service Admin
 
 agenda.itest.simple
   - a very simple integration test
