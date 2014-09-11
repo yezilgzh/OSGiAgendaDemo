@@ -1,16 +1,12 @@
-# This is the Amdatu Remote Service project (Work In Progress)
+# This is the Agenda integration test project (Work In Progress). It is based on the Amdatu Remote itest.
 #
 # The basic idea is that this project is launched as a standard BND integration test projects. The tests run
 # in the 'parent framework, but subsequently spawn one or more 'child' frameworks that get provisioned as 
-# needed (see RemoteServiceTestBase).
+# needed (see IntegrationTestBase).
 #
-# Every test method runs in a clean child framework. WHere possible combining multiple logical tests in a single
+# Every test method runs in a clean child framework. Where possible combining multiple logical tests in a single
 # test method reduces overhead. In addition tests should to care should be taken not to polute that parent 
 # framework (eg. by installing additional bundles or leaving servcies registered).
-#
-# TODO extend the actual tests to do a full spec coverage
-# TODO improved logging (eg. global default switch / framework state)
-# TODO improved baseclasses to reduce boilerplate (eg. SingleFrameworkTestBase)
 #
 Bundle-Version: 0.1.0
 Test-Cases: ${classes;CONCRETE;EXTENDS;junit.framework.TestCase}
@@ -18,14 +14,13 @@ Test-Cases: ${classes;CONCRETE;EXTENDS;junit.framework.TestCase}
 # This bundles must either embed or import any packages the itest framework code uses as well as the packages the
 # discovery implementation tests requires.
 #
+# agenda packages:
 #
-# remoteserviceadmin packages:
-#
-#   org.osgi.service.remoteserviceadmin.*				: the R6 packages exposed to the tests
+#   agenda.api.*				: the agenda packages exposed to the tests
 #
 # itest framework packages:
 #
-#   org.amdatu.remote.itest.* 					: this project's own packages
+#   agenda.itest.* 					: this project's own packages
 #   org.apache.felix.framework.*,\        				: so we can launch (felix) frameworks
 #
 # TODO: Support FrameworkFactory through classpath? Note the SPI lookup will not work because it will use the app classloader
@@ -33,7 +28,8 @@ Test-Cases: ${classes;CONCRETE;EXTENDS;junit.framework.TestCase}
 Private-Package:  \
 	org.apache.commons.*,\
 	org.apache.felix.framework.*,\
-	agenda.*
+	agenda.api.*,\
+	agenda.itest.*
 	
 Import-Package: !org.apache.log4j.*,\
   !org.slf4j.*,\
@@ -56,7 +52,6 @@ DynamicImport-Package: *
 # This project's buildpath must contain any packages the itest framework code uses as well as the packages the
 # discovery implementation tests requires.
 #
-# NOTE: R6 remoteserviceadmin must be before the R5 enterprise so it overrides it on the classpath
 #
 -buildpath:  \
 	osgi.core;version='[5,6)',\
@@ -73,13 +68,8 @@ DynamicImport-Package: *
 #
 -runbundles: \
   osgi.cmpn;version=4.3.1,\
-  javax.servlet;version=2.5,\
   org.apache.felix.configadmin;version=1.6.0,\
-  org.apache.felix.dependencymanager,\
-  org.apache.hadoop.zookeeper,\
-  slf4j.api,\
-  slf4j.simple
-  
+  org.apache.felix.dependencymanager
 
 -runpath: \
   org.mockito.mockito-all
@@ -95,7 +85,6 @@ DynamicImport-Package: *
 # Because the tests run in the parent framework all packages that brdige between parent and child
 # framework must be expose from the parent classloader into the child framworks.
 #  
-# TODO: Felix configadmin implements R5 api and thus does not resolve against cmpn 4.3.1
 # TODO: If we embed BND we can resolve the bundle paths at runtime
 #
 -runproperties:	\
@@ -105,18 +94,14 @@ DynamicImport-Package: *
     ${repo;org.apache.felix.eventadmin;latest},\
     ${repo;org.apache.felix.configadmin;1.6.0}",\
   itest.bundles.agenda="\
-    ${repo;agenda.api;latest},\
     ${repo;agenda.service.simple.provider;latest}",\
   itest.systempackages="\
     sun.misc,\
     sun.reflect,\
-    org.amdatu.remote.admin.itest.api,\
     org.osgi.service.cm;version=1.5,\
     org.osgi.service.event;version=1.3,\
     org.osgi.service.http;version=1.2.1,\
     org.osgi.service.log;version=1.3,\
     org.osgi.service.metatype;version=1.2,\
-    org.osgi.service.remoteserviceadmin;version=1.1.0,\
-    javax.servlet;version=2.5,\
-    javax.servlet.http;version=2.5,\
-    org.apache.felix.dm;version=3.1.0"
+    org.apache.felix.dm;version=3.1.0,\
+    agenda.api;version=1.0.0"
