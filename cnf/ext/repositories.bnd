@@ -5,6 +5,7 @@
   aQute.bnd.deployer.repository.FixedIndexedRepo; name=Amdatu Dependencies; locations=http://repository.amdatu.org/dependencies/index.xml.gz,\
   aQute.bnd.deployer.repository.FixedIndexedRepo; name=Amdatu Snapshots; locations=http://repository.amdatu.org/snapshot/index.xml.gz,\
   aQute.bnd.deployer.repository.FixedIndexedRepo; name=Amdatu Release; locations=http://repository.amdatu.org/release/index.xml.gz,\
-  aQute.lib.deployer.FileRepo; name=Build; location=${workspace}/cnf/buildrepo
+  aQute.lib.deployer.FileRepo; name=Build; location=${workspace}/cnf/buildrepo,\
+  aQute.bnd.deployer.repository.FixedIndexedRepo;name='Amdatu Configurator Staging';locations=http://repository.amdatu.org/staging/amdatu-configurator-r1/index.xml.gz
 
 -releaserepo: Release

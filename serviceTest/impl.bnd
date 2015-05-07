@@ -1,0 +1,3 @@
+Private-Package:  \
+	impl
+Bundle-Activator: impl.Activator
